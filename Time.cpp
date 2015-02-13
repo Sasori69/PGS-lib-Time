@@ -255,6 +255,11 @@ time_t now() {
     sysUnsyncedTime++; // this can be compared to the synced time to measure long term drift     
 #endif
   }
+  return (time_t)sysTime;
+}
+
+void syncTime(){
+  now();
   if (nextSyncTime <= sysTime) {
     if (getTimePtr != 0) {
       time_t t = getTimePtr();
@@ -266,7 +271,6 @@ time_t now() {
       }
     }
   }  
-  return (time_t)sysTime;
 }
 
 void setTime(time_t t) { 
@@ -310,7 +314,7 @@ timeStatus_t timeStatus() {
 void setSyncProvider( getExternalTime getTimeFunction){
   getTimePtr = getTimeFunction;  
   nextSyncTime = sysTime;
-  now(); // this will sync the clock
+  //now(); // this will sync the clock
 }
 
 void setSyncInterval(time_t interval){ // set the number of seconds between re-sync
