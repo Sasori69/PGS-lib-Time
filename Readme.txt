@@ -44,6 +44,7 @@ following functions eliminates this probglem
   
   
 Functions for managing the timer services are:  
+syncTime();             // manually sync time
 setTime(t);             // set the system time to the give time t
 setTime(hr,min,sec,day,mnth,yr); // alternative to above, yr is 2 or 4 digit yr (2010 or 10 sets year to 2010)
 adjustTime(adjustment); // adjust system time by adding the adjustment value
