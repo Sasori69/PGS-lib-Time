@@ -313,11 +313,11 @@ timeStatus_t timeStatus() {
 
 void setSyncProvider( getExternalTime getTimeFunction){
   getTimePtr = getTimeFunction;  
-  nextSyncTime = sysTime;
+  //nextSyncTime = sysTime;
   //now(); // this will sync the clock
 }
 
 void setSyncInterval(time_t interval){ // set the number of seconds between re-sync
   syncInterval = (uint32_t)interval;
-  nextSyncTime = sysTime + syncInterval;
+  //nextSyncTime = sysTime + syncInterval;
 }
