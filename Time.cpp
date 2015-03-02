@@ -258,9 +258,9 @@ time_t now() {
   return (time_t)sysTime;
 }
 
-void syncTime(){
+void syncTime(bool force){
   now();
-  if (nextSyncTime <= sysTime) {
+  if ((force) || (nextSyncTime <= sysTime)) {
     if (getTimePtr != 0) {
       time_t t = getTimePtr();
       if (t != 0) {
